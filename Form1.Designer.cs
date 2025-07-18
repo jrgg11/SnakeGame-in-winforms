@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.gameBoard = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.imgList = new System.Windows.Forms.ImageList(this.components);
@@ -50,9 +51,12 @@
             // 
             // imgList
             // 
-            this.imgList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imgList.ImageSize = new System.Drawing.Size(35, 35);
+            this.imgList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgList.ImageStream")));
             this.imgList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imgList.Images.SetKeyName(0, "apple.png");
+            this.imgList.Images.SetKeyName(1, "brick.png");
+            this.imgList.Images.SetKeyName(2, "snake_Body.png");
+            this.imgList.Images.SetKeyName(3, "snake_Head.png");
             // 
             // Form1
             // 
