@@ -28,35 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.components = new System.ComponentModel.Container();
+            this.gameBoard = new System.Windows.Forms.PictureBox();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.imgList = new System.Windows.Forms.ImageList(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.gameBoard)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // gameBoard
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            
+            this.gameBoard.Location = new System.Drawing.Point(16, 12);
+            this.gameBoard.Name = "gameBoard";
+            this.gameBoard.Size = new System.Drawing.Size(420, 420);
+            this.gameBoard.TabIndex = 0;
+            this.gameBoard.TabStop = false;
+            // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Interval = 500;
+            // 
+            // imgList
+            // 
+            this.imgList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imgList.ImageSize = new System.Drawing.Size(35, 35);
+            this.imgList.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(448, 446);
+            this.Controls.Add(this.gameBoard);
             this.Name = "Form1";
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Text = "Snake";
+            ((System.ComponentModel.ISupportInitialize)(this.gameBoard)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox gameBoard;
+        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.ImageList imgList;
     }
 }
 
