@@ -35,7 +35,7 @@ namespace SnakeGame
             public int y;
         };
 
-        gameBoardFields[,] gameBoard;
+        gameBoardFields[,] gameBoardArray;
         snakeCoordinates[] snakeXY;
         int snakeLength;
         direction snakeDirection;
@@ -44,7 +44,7 @@ namespace SnakeGame
         public Form1()
         {
             InitializeComponent();
-            gameBoard = new gameBoardFields[11, 11];
+            gameBoardArray = new gameBoardFields[11, 11];
             snakeXY = new snakeCoordinates[100];
             rand = new Random();
         }
