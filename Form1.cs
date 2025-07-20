@@ -115,5 +115,11 @@ namespace SnakeGame
                     break;
             }
         }
+
+        private void GameOver()
+        {
+            timer.Stop();
+            MessageBox.Show("Game Over! Your score: " + (snakeLength - 3));
+        }
     }
 }
