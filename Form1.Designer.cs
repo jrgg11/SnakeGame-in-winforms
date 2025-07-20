@@ -66,7 +66,8 @@
             this.Controls.Add(this.gameBoard);
             this.Name = "Form1";
             this.Text = "Snake";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.snakeLoad);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.snakeKey_Down);
             ((System.ComponentModel.ISupportInitialize)(this.gameBoard)).EndInit();
             this.ResumeLayout(false);
 

@@ -49,7 +49,7 @@ namespace SnakeGame
             rand = new Random();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void snakeLoad(object sender, EventArgs e)
         {
             gameBoard.Image = new Bitmap(420, 420);
             graphics = Graphics.FromImage(gameBoard.Image);
@@ -95,6 +95,25 @@ namespace SnakeGame
 
             gameBoardArray[x, y] = gameBoardFields.food; // Mark food position in the game board array
             graphics.DrawImage(imgList.Images[0], x * 35, y * 35); // Draw food on the game board
+        }
+
+        private void snakeKey_Down(object sender, KeyEventArgs e)
+        {
+            switch(e.KeyCode)
+            {
+                case Keys.Up:
+                    snakeDirection = direction.up;
+                    break;
+                case Keys.Down:
+                    snakeDirection = direction.down;
+                    break;
+                case Keys.Left:
+                    snakeDirection = direction.left;
+                    break;
+                case Keys.Right:
+                    snakeDirection = direction.right;
+                    break;
+            }
         }
     }
 }
