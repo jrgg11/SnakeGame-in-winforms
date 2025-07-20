@@ -59,6 +59,23 @@ namespace SnakeGame
                 for (int j = 0; j < 11; j++)                                        // Border
                     if (i == 0 || i == 10 || j == 0 || j == 10)                    // 
                         graphics.DrawImage(imgList.Images[1], i * 35, j * 35);    //   
+
+            // Initial snake head position
+            snakeXY[0].x = 5; 
+            snakeXY[0].y = 5;
+
+            //Initial snake body position
+            snakeXY[1].x = 5;
+            snakeXY[1].y = 6;
+            snakeXY[2].x = 5;
+            snakeXY[2].y = 7;
+
+            graphics.DrawImage(imgList.Images[3], snakeXY[0].x * 35, snakeXY[0].y * 35);    // Draw snake head
+
+            for (int i = 1; i < 3; i++)
+            {
+                graphics.DrawImage(imgList.Images[2], snakeXY[i].x * 35, snakeXY[i].y * 35);    // Draw snake body
+            }
         }
 
     }
