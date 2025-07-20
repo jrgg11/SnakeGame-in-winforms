@@ -83,5 +83,18 @@ namespace SnakeGame
             snakeLength = 3; // Set initial length of the snake
         }
 
+        private void Food()
+        {
+            int x, y;
+
+            do
+            {
+                x = rand.Next(1, 10);
+                y = rand.Next(1, 10);
+            } while (gameBoardArray[x, y] != gameBoardFields.empty); // Ensure food does not spawn on snake or border
+
+            gameBoardArray[x, y] = gameBoardFields.food; // Mark food position in the game board array
+            graphics.DrawImage(imgList.Images[0], x * 35, y * 35); // Draw food on the game board
+        }
     }
 }
