@@ -51,7 +51,15 @@ namespace SnakeGame
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            gameBoard.Image = new Bitmap(420, 420);
+            graphics = Graphics.FromImage(gameBoard.Image);
+            graphics.Clear(Color.White);
+
+            for(int i = 0; i < 11; i++)                                              //
+                for (int j = 0; j < 11; j++)                                        // Border
+                    if (i == 0 || i == 10 || j == 0 || j == 10)                    // 
+                        graphics.DrawImage(imgList.Images[1], i * 35, j * 35);    //   
         }
+
     }
 }

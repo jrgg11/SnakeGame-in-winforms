@@ -40,7 +40,7 @@
             // 
             this.gameBoard.Location = new System.Drawing.Point(16, 12);
             this.gameBoard.Name = "gameBoard";
-            this.gameBoard.Size = new System.Drawing.Size(420, 420);
+            this.gameBoard.Size = new System.Drawing.Size(453, 445);
             this.gameBoard.TabIndex = 0;
             this.gameBoard.TabStop = false;
             // 
@@ -62,10 +62,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 446);
+            this.ClientSize = new System.Drawing.Size(433, 424);
             this.Controls.Add(this.gameBoard);
             this.Name = "Form1";
             this.Text = "Snake";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gameBoard)).EndInit();
             this.ResumeLayout(false);
 
