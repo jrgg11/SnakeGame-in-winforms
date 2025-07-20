@@ -71,10 +71,12 @@ namespace SnakeGame
             snakeXY[2].y = 7;
 
             graphics.DrawImage(imgList.Images[3], snakeXY[0].x * 35, snakeXY[0].y * 35);    // Draw snake head
+            gameBoardArray[5,5] = gameBoardFields.snake; // Mark snake head position in the game board array
 
             for (int i = 1; i < 3; i++)
             {
                 graphics.DrawImage(imgList.Images[2], snakeXY[i].x * 35, snakeXY[i].y * 35);    // Draw snake body
+                gameBoardArray[snakeXY[i].x, snakeXY[i].y] = gameBoardFields.snake; // Mark snake body position in the game board array
             }
         }
 
