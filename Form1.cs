@@ -78,6 +78,9 @@ namespace SnakeGame
                 graphics.DrawImage(imgList.Images[2], snakeXY[i].x * 35, snakeXY[i].y * 35);    // Draw snake body
                 gameBoardArray[snakeXY[i].x, snakeXY[i].y] = gameBoardFields.snake; // Mark snake body position in the game board array
             }
+
+            snakeDirection = direction.up; // Set initial direction of the snake
+            snakeLength = 3; // Set initial length of the snake
         }
 
     }
