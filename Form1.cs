@@ -124,8 +124,57 @@ namespace SnakeGame
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            graphics.FillRectangle(Brushes.Black, snakeXY[snakeLength-1].x * 35, snakeXY[snakeLength - 1].y * 35, 35, 35); // Clear the tail
+            graphics.FillRectangle(Brushes.White, snakeXY[snakeLength-1].x * 35, snakeXY[snakeLength - 1].y * 35, 35, 35); // Clear the tail
             gameBoardArray[snakeXY[snakeLength - 1].x, snakeXY[snakeLength - 1].y] = gameBoardFields.empty; // Mark tail position as empty
+
+            for (int i = snakeLength; i > 0; i--) // Move the snake body
+            {
+                snakeXY[i] = snakeXY[i - 1];
+            }
+
+            graphics.DrawImage(imgList.Images[2], snakeXY[0].x * 35, snakeXY[0].y * 35); // Draw the new head position
+
+            switch (snakeDirection)
+            {
+                case direction.up:
+                    snakeXY[0].y--;
+                    break;
+                case direction.down:
+                    snakeXY[0].y++;
+                    break;
+                case direction.left:
+                    snakeXY[0].x--;
+                    break;
+                case direction.right:
+                    snakeXY[0].x++;
+                    break;
+            }
+
+            // Check for collisions with walls and snake body
+            if (snakeXY[0].x < 1 || snakeXY[0].x > 10 || snakeXY[0].y < 1 || snakeXY[0].y > 10 ||
+                gameBoardArray[snakeXY[0].x, snakeXY[0].y] == gameBoardFields.snake)
+            {
+                GameOver();
+                gameBoard.Refresh();
+                return;
+            }
+            else if (gameBoardArray[snakeXY[0].x, snakeXY[0].y] == gameBoardFields.food) // Check if snake eats food
+            {
+                graphics.DrawImage(imgList.Images[2], snakeXY[snakeLength].x * 35, snakeXY[snakeLength].y * 35); // Draw the new body part
+                gameBoardArray[snakeXY[snakeLength].x, snakeXY[snakeLength].y] = gameBoardFields.snake; // Mark new body position as snake
+                snakeLength++;
+
+                if(snakeLength < 100) // Check if snake length is within bounds
+                {
+                    Food(); // Spawn new food
+                }
+
+                this.Text = "Snake Game - Score: " + (snakeLength - 3); // Update score
+            }
+
+            graphics.DrawImage(imgList.Images[3], snakeXY[0].x * 35, snakeXY[0].y * 35); // Draw the new head position
+            gameBoardArray[snakeXY[0].x, snakeXY[0].y] = gameBoardFields.snake; // Mark new head position as snake
+
             gameBoard.Refresh();
         }
     }
