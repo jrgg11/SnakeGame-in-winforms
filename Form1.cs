@@ -47,6 +47,21 @@ namespace SnakeGame
             gameBoardArray = new gameBoardFields[11, 11];
             snakeXY = new snakeCoordinates[100];
             rand = new Random();
+            
+        }
+
+        private void Food()
+        {
+            int x, y;
+
+            do
+            {
+                x = rand.Next(1, 10);
+                y = rand.Next(1, 10);
+            } while (gameBoardArray[x, y] != gameBoardFields.empty); // Ensure food does not spawn on snake or border
+
+            gameBoardArray[x, y] = gameBoardFields.food; // Mark food position in the game board array
+            graphics.DrawImage(imgList.Images[0], x * 35, y * 35); // Draw food on the game board
         }
 
         private void snakeLoad(object sender, EventArgs e)
@@ -81,20 +96,8 @@ namespace SnakeGame
 
             snakeDirection = direction.up; // Set initial direction of the snake
             snakeLength = 3; // Set initial length of the snake
-        }
 
-        private void Food()
-        {
-            int x, y;
-
-            do
-            {
-                x = rand.Next(1, 10);
-                y = rand.Next(1, 10);
-            } while (gameBoardArray[x, y] != gameBoardFields.empty); // Ensure food does not spawn on snake or border
-
-            gameBoardArray[x, y] = gameBoardFields.food; // Mark food position in the game board array
-            graphics.DrawImage(imgList.Images[0], x * 35, y * 35); // Draw food on the game board
+            Food(); // Spawn initial food
         }
 
         private void snakeKey_Down(object sender, KeyEventArgs e)
@@ -155,7 +158,6 @@ namespace SnakeGame
                 gameBoardArray[snakeXY[0].x, snakeXY[0].y] == gameBoardFields.snake)
             {
                 GameOver();
-                gameBoard.Refresh();
                 return;
             }
             else if (gameBoardArray[snakeXY[0].x, snakeXY[0].y] == gameBoardFields.food) // Check if snake eats food
