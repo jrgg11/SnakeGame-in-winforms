@@ -121,5 +121,10 @@ namespace SnakeGame
             timer.Stop();
             MessageBox.Show("Game Over! Your score: " + (snakeLength - 3));
         }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+
+        }
     }
 }
