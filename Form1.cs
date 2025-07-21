@@ -124,7 +124,9 @@ namespace SnakeGame
 
         private void timer_Tick(object sender, EventArgs e)
         {
-
+            graphics.FillRectangle(Brushes.Black, snakeXY[snakeLength-1].x * 35, snakeXY[snakeLength - 1].y * 35, 35, 35); // Clear the tail
+            gameBoardArray[snakeXY[snakeLength - 1].x, snakeXY[snakeLength - 1].y] = gameBoardFields.empty; // Mark tail position as empty
+            gameBoard.Refresh();
         }
     }
 }
